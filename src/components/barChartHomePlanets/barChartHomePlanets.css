@@ -1,0 +1,10 @@
+.chart {
+  display: flex;
+  justify-content: space-between;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
