@@ -6,7 +6,7 @@ import api from "./api/api";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [MaxData, setMaxData] = useState({});
+  const [maxData, setMaxData] = useState({});
   const [planets, setPlanets] = useState({});
   useEffect(() => {
     (async () => {
@@ -93,7 +93,7 @@ function App() {
   }, []);
   return (
     <div>
-      <TableVehicleDetails MaxData={MaxData} />
+      <TableVehicleDetails maxData={maxData} />
       <BarChartHomePlanets planets={planets} />
     </div>
   );

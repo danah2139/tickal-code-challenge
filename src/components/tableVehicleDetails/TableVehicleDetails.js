@@ -1,18 +1,18 @@
-const TableVehicleDetails = ({ MaxData }) => {
+const TableVehicleDetails = ({ maxData }) => {
   const showMaxDetailes = () => {
     const display = [];
-    if (MaxData) {
-      display.push(<td>{MaxData["vehicleName"]}</td>);
-      if (MaxData["pilots"] && MaxData["pilots"].length > 0) {
-        MaxData["pilots"].forEach((element) => {
+    if (maxData) {
+      display.push(<td>{maxData["vehicleName"]}</td>);
+      if (maxData["pilots"] && maxData["pilots"].length > 0) {
+        maxData["pilots"].forEach((element) => {
           display.push(<td>{element}</td>);
         });
       }
 
-      for (let key in MaxData["planets"]) {
+      for (let key in maxData["planets"]) {
         display.push(
           <td>
-            {key} : {MaxData["planets"][key]}
+            {key} : {maxData["planets"][key]}
           </td>
         );
       }
