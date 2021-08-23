@@ -17,7 +17,8 @@ function App() {
       let i = 1;
       let count = 0,
         sum,
-        currentVeicleDetail;
+        currentVeicleDetail,
+        currentMaxData;
       while (numOfVehicles > count) {
         sum = 0;
         currentVeicleDetail = {};
@@ -68,7 +69,6 @@ function App() {
                       homeworldData.data.population
                     ),
                   };
-                  //   console.log(homeworldData.data.population);
                   sum += parseInt(homeworldData.data.population);
                   setPlanets((prevState) => ({
                     ...prevState,
@@ -83,12 +83,12 @@ function App() {
             j++;
           }
           if (maxPopulation < sum) {
-            console.log(planets);
-            setMaxData(currentVeicleDetail);
+            currentMaxData = currentVeicleDetail;
             maxPopulation = sum;
           }
         }
       }
+      setMaxData(currentMaxData);
     })();
   }, []);
   return (
