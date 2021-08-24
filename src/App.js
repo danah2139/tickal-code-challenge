@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [maxData, setMaxData] = useState({});
-  const [planets, setPlanets] = useState({});
+
   useEffect(() => {
     (async () => {
       const { data } = await api.get("vehicles");
@@ -70,12 +70,6 @@ function App() {
                     ),
                   };
                   sum += parseInt(homeworldData.data.population);
-                  setPlanets((prevState) => ({
-                    ...prevState,
-                    [homeworldData.data.name]: parseInt(
-                      homeworldData.data.population
-                    ),
-                  }));
                 }
               }
             }
@@ -93,8 +87,8 @@ function App() {
   }, []);
   return (
     <div>
-      <TableVehicleDetails maxData={maxData} />
-      <BarChartHomePlanets planets={planets} />
+      {maxData && <TableVehicleDetails maxData={maxData} />}
+      <BarChartHomePlanets />
     </div>
   );
 }
