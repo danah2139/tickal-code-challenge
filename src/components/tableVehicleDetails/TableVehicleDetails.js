@@ -1,4 +1,13 @@
-const TableVehicleDetails = ({ maxData }) => {
+import getTableDetails from "./getTableDetails";
+import { useEffect, useState } from "react";
+
+const TableVehicleDetails = () => {
+  const [maxData, setMaxData] = useState({});
+  useEffect(() => {
+    (async () => {
+      setMaxData(await getTableDetails());
+    })();
+  }, []);
   const showMaxDetailes = () => {
     const display = [];
     if (maxData) {
